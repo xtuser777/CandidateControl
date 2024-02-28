@@ -1,13 +1,43 @@
 package br.org.xt.challenge.fluxctrl.candidates;
 
+import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SelectionProcess {
 
 	public static void main(String[] args) {
-		candidateAnalysis(1900.0);
-		candidateAnalysis(2200.0);
-		candidateAnalysis(2000.0);
+		String[] candidates = {"FELIPE","MARCIA","JULIA","PAULO","AUGUSTO"};
+
+		for (String candidate : candidates) {
+			makeContact(candidate);
+		}
+	}
+
+	static void makeContact(String candidate) {
+		int tries = 1; 
+		boolean continueTrying = true;
+		boolean receive = false;
+
+		do {
+			receive = receive();
+			continueTrying = !receive;
+
+			if (continueTrying) {
+				tries++;
+			} else {
+				System.out.println("Contato realizado.");
+			}
+		} while (continueTrying && tries < 3);
+
+		if (receive) {
+			System.out.println("Conseguimos contato com " + candidate + " na " + tries + " tentativa");
+		} else {
+			System.out.println("Não conseguimos contato com o candidato " + candidate);
+		}
+	}
+
+	static boolean receive() {
+		return new Random().nextInt(3) == 1;
 	}
 
 	static void printSelected() {
