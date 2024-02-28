@@ -10,6 +10,22 @@ public class SelectionProcess {
 		candidateAnalysis(2000.0);
 	}
 
+	static void printSelected() {
+		String[] candidates = {"FELIPE","MARCIA","JULIA","PAULO","AUGUSTO"};
+
+		System.out.println("Imprimindo candidatos a partir do indice do elemento.");
+
+		for (int i = 0; i < candidates.length; i++) {
+			System.out.println("Indice " + i + " Candidato " + candidates[i]);
+		}
+
+		System.out.println("Forma abreviada de iteração");
+
+		for (String candidate : candidates) {
+			System.out.println("Candidato selecionado: " + candidate);
+		}
+	}
+
 	static void candidatesSelection() {
 		String[] candidates = {"FELIPE", "MARCIA", "JULIA", "PAULO", "AUGUSTO", "MONICA", "FABRICIO", "MIRELA", "DANIELA", "JORGE"};
 
